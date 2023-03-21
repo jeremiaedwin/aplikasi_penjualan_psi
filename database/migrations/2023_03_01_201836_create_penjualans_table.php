@@ -16,7 +16,6 @@ return new class extends Migration
             $table->bigInteger('product_id');
             $table->integer('quantity');
             $table->integer('total');
-            $table->integer('amount');
             $table->timestamps();
         });
     }

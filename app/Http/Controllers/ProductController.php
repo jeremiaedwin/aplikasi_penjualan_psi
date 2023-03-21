@@ -68,11 +68,9 @@ class ProductController extends Controller
         //
     }
 
-    public function updateStok(Request $request, $id)
+    public function detailProduct(Request $request, $id)
     {
         $product = Product::find($id); 
-        $product->stok_produk = $product->stok_produk - 1;
-        $product->save();
         //return response
         return response()->json([
             'success' => true,

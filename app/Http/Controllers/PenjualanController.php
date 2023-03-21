@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Penjualan;
+use App\Models\Product;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PenjualanController extends Controller
 {
@@ -28,7 +30,26 @@ class PenjualanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $id = $request->product_id;
+        $product = Product::find($id);
+        if($product->stok_produk >= $request->quantity){
+                $purchase = new Penjualan;
+                $product->stok_produk = $product->stok_produk - $request->quantity;
+                $purchase->product_id = $id;
+                $purchase->quantity = $request->quantity;
+                $purchase->total = $product->price * $request->quantity;
+                $product->save();
+                $purchase->save();
+                return response()->json([
+                    'success' => true,
+                ]);
+        }else{
+            return response()->json([
+                'success' => false,
+                'message' => 'Something went wrong'
+            ], 500);
+        }
+        
     }
 
     /**

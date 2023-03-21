@@ -19,8 +19,9 @@ Route::get('/', function () {
 });
 
 Route::get('/penjualan/create', [PenjualanController::class, 'create']);
+Route::post('/penjualan/', [PenjualanController::class, 'store']);
 Route::get('/product/create', [ProductController::class, 'create']);
 Route::post('/product', [ProductController::class, 'store']);
 Route::get('/product', [ProductController::class, 'index']);
 Route::get('/product/{id}', [ProductController::class, 'show']);
-Route::put('/product/stok/{id}', [ProductController::class, 'updateStok']);
+Route::get('/product/detail/{id}', [ProductController::class, 'detailProduct']);
