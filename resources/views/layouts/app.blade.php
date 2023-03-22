@@ -34,7 +34,7 @@
                 <div class="container-fluid">
 
                     <h1 class="h3 mb-4 text-gray-800">@yield('page')</h1>
- 
+                    @include('sweetalert::alert')
                     @yield('content')
                 </div>
                 <!-- /.container-fluid -->

@@ -6,6 +6,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Services\PayUService\Exception;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ProductController extends Controller
 {
@@ -103,8 +104,13 @@ class ProductController extends Controller
         $id = $request->product_id;
         $product = Product::find($id);
         
-        $product->stok_produk = $product->stok_produk + $request->quantity;
-        $product->save();
+        try{
+            $product->stok_produk = $product->stok_produk + $request->quantity;
+            $product->save();
+            Alert::success('Success!', 'Berhasil menambahkan stok '.$product->nama_produk);
+        }catch(\Exception $e){
+            Alert::error('Terjadi Kesalahan!', 'Gagal menambahkan stok produk.');
+        }
         return back();
     }
 }
