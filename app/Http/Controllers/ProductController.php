@@ -98,13 +98,13 @@ class ProductController extends Controller
         return view('product.update');
     }
 
-    public function addStok()
+    public function addStok(Request $request)
     {
         $id = $request->product_id;
         $product = Product::find($id);
         
-            $product->stok_produk = $product->stok_produk + $request->quantity;
-            $product->save();
-            return back();
+        $product->stok_produk = $product->stok_produk + $request->quantity;
+        $product->save();
+        return back();
     }
 }

@@ -8,8 +8,12 @@
         <center>
         <div id="reader" width="600px"></div>
     </center>
+    <form action="/product/update" method="post">
+        {{csrf_field()}}
+        {{method_field('PUT')}}
+    
         <div class="form-group mb-3">
-            <input hidden type="text" class="form-control" name="product_id" id="product_id">
+            <input  type="text" class="form-control" name="product_id" id="product_id">
         </div>
         <div class="form-group mb-3">
             <label for="">Nama Produk</label>
@@ -27,8 +31,9 @@
             <label for="">Quantity</label>
             <input type="text" class="form-control" name="quantity" id="quantity">
         </div>
-        <input type="submit" id="submit"value="Submit" class="btn btn-primary">
+        <input type="submit" id="submit1"value="Submit" class="btn btn-primary">
         </div>
+        </form>
     </div>
 
 
@@ -81,6 +86,7 @@
                 },
                 error:function(response){
                     alert(response.message)
+                    location.reload(true);
                 }
 
         });
@@ -104,7 +110,6 @@
                     $("#stok_produk").val(response.data.stok_produk);
                     $("#harga_produk").val(response.data.harga_produk);
                     $("#quantity").val(0);
-                    $("#product_id").prop('disabled', true);
                     $("#nama_produk").prop('disabled', true);
                     $("#stok_produk").prop('disabled', true);
                     $("#harga_produk").prop('disabled', true);
