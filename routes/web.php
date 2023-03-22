@@ -25,6 +25,7 @@ Route::post('/product', [ProductController::class, 'store']);
 Route::get('/product', [ProductController::class, 'index']);
 Route::get('/product/{id}', [ProductController::class, 'show']);
 Route::get('/product/detail/{id}', [ProductController::class, 'detailProduct']);
+Route::get('/product/update/stok', [ProductController::class, 'updateStok']);
 
 Auth::routes();
 

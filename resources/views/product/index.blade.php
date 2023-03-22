@@ -1,9 +1,7 @@
 @extends('layouts.app')
 @section('page', 'Product')
 @section('content')
-@can('create product')
-<a href="/product/create" class="btn btn-success">Add Product</a>
-@endcan
+
 <div class="card">
   <div class="card-body">
     <table class="table table-striped-rows">

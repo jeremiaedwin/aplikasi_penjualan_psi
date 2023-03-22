@@ -91,4 +91,9 @@ class ProductController extends Controller
     {
         //
     }
+
+    public function updateStok()
+    {
+        return view('product.updateStock');
+    }
 }
