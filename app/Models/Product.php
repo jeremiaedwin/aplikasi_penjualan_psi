@@ -9,4 +9,14 @@ class Product extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+    public function getGambarProdukAttribute($value)
+{
+    if ($value) {
+        return asset('storage/' . $value);
+    } else {
+        return asset('img/default.png');
+    }
+}
+
 }

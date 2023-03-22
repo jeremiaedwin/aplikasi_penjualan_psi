@@ -5,29 +5,30 @@
     
     <div class="card">
         <div class="card-body">
-        <center>
-        <div id="reader" width="600px"></div>
-    </center>
-        <div class="form-group mb-3">
-            <input hidden type="text" class="form-control" name="product_id" id="product_id">
-        </div>
-        <div class="form-group mb-3">
-            <label for="">Nama Produk</label>
-            <input type="text" class="form-control" name="nama_produk" id="nama_produk">
-        </div>
-        <div class="form-group mb-3">
-            <label for="">Stok Produk</label>
-            <input type="text" class="form-control" name="stok_produk" id="stok_produk">
-        </div>
-        <div class="form-group mb-3">
-            <label for="">Harga Produk</label>
-            <input type="text" class="form-control" name="harga_produk" id="harga_produk">
-        </div>
-        <div class="form-group mb-3">
-            <label for="">Quantity</label>
-            <input type="text" class="form-control" name="quantity" id="quantity">
-        </div>
-        <input type="submit" id="submit"value="Submit" class="btn btn-primary">
+            <center>
+                <div id="reader" width="600px"></div>
+            </center>
+        
+            <div class="form-group mb-3">
+                <input hidden type="text" class="form-control" name="product_id" id="product_id">
+            </div>
+            <div class="form-group mb-3">
+                <label for="">Nama Produk</label>
+                <input type="text" class="form-control" name="nama_produk" id="nama_produk">
+            </div>
+            <div class="form-group mb-3">
+                <label for="">Stok Produk</label>
+                <input type="text" class="form-control" name="stok_produk" id="stok_produk">
+            </div>
+            <div class="form-group mb-3">
+                <label for="">Harga Produk</label>
+                <input type="text" class="form-control" name="harga_produk" id="harga_produk">
+            </div>
+            <div class="form-group mb-3">
+                <label for="">Quantity</label>
+                <input type="text" class="form-control" name="quantity" id="quantity">
+            </div>
+                <input type="submit" id="submit"value="Submit" class="btn btn-primary">
         </div>
     </div>
 

@@ -59,17 +59,17 @@
         $(document).ready(function(e) {
             $('#submit').click(function(e){
                 e.preventDefault();
-                transaction();
+                updateStok();
             });
         });
-        function transaction(id){
-            
+
+        function updateStok(id){
             let _id = $('#product_id').val();
             let qty   = $('#quantity').val();
             $.ajax({
 
-                url: '/penjualan/',
-                type: "POST",
+                url: '/product/update',
+                type: "PUT",
                 data: {
                     product_id: _id,
                     quantity: qty,
@@ -79,14 +79,13 @@
                     alert('Penjualan berhasil')
                     location.reload(true);
                 },
-                error:function(error){
-                    alert('Stok tidak mencukupi')
-                    location.reload(true);
+                error:function(response){
+                    alert(response.message)
                 }
 
         });
-
         }
+
 
         function beliProduk(id){
             alert('Scan Berhasil');

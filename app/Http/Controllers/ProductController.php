@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use App\Services\PayUService\Exception;
 
 class ProductController extends Controller
 {
@@ -94,6 +95,16 @@ class ProductController extends Controller
 
     public function updateStok()
     {
-        return view('product.updateStock');
+        return view('product.update');
+    }
+
+    public function addStok()
+    {
+        $id = $request->product_id;
+        $product = Product::find($id);
+        
+            $product->stok_produk = $product->stok_produk + $request->quantity;
+            $product->save();
+            return back();
     }
 }

@@ -3,7 +3,9 @@
 @section('content')
 <div class="card">
     <div class="card-body">
-        <center><img src="{{ asset('storage/'.$product->id.'.png') }}" alt="" width=300 height=300></center>
+        <center>
+            <img src="{{ asset('storage/'.$product->id.'.png') }}" alt="" width=300 height=300>
+        </center>
         <table class="table mt-4">
             <tr>
                 <th>Nama Produk</th>
