@@ -8,6 +8,11 @@ use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
+
+    public function __construct()
+    {
+        // $this->middleware('permission:create product', ['only' => ['create', 'store']]);
+    }
     /**
      * Display a listing of the resource.
      */

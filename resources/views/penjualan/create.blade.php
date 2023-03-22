@@ -1,9 +1,11 @@
-@extends('layout')
+@extends('layouts.app')
+@section('page', 'Tambah Penjualan')
 @section('content')
-    <h1>Scan Product</h1>
     
     
-    <center>
+    <div class="card">
+        <div class="card-body">
+        <center>
         <div id="reader" width="600px"></div>
     </center>
         <div class="form-group mb-3">
@@ -26,6 +28,8 @@
             <input type="text" class="form-control" name="quantity" id="quantity">
         </div>
         <input type="submit" id="submit"value="Submit" class="btn btn-primary">
+        </div>
+    </div>
 
 
     <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
