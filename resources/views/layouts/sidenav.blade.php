@@ -35,7 +35,9 @@
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="/product">Daftar Product</a>
+            @can('create product', Product::class)
             <a class="collapse-item" href="/product/create">Tambah Product</a>
+            @endcan
             @can('scan product for add stock', Product::class)
             <a class="collapse-item" href="/product/update/stok">Tambah Stok</a>
             @endcan

@@ -13,7 +13,7 @@ class ProductController extends Controller
 
     public function __construct()
     {
-        // $this->middleware('permission:create product', ['only' => ['create', 'store']]);
+        $this->middleware('permission:create product', ['only' => ['create', 'store']]);
         $this->middleware('permission:scan product for add stock', ['only' => ['updateStok', 'addStok']]);
     }
     /**
