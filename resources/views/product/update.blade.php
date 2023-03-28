@@ -13,7 +13,7 @@
         {{method_field('PUT')}}
     
         <div class="form-group mb-3">
-            <input  type="text" class="form-control" name="product_id" id="product_id">
+            <input  type="hidden" class="form-control" name="product_id" id="product_id">
         </div>
         <div class="form-group mb-3">
             <label for="">Nama Produk</label>

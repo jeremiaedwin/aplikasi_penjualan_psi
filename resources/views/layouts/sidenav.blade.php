@@ -24,10 +24,6 @@
 <!-- Divider -->
 <hr class="sidebar-divider">
 
-<!-- Heading -->
-<div class="sidebar-heading">
-    Interface
-</div>
 
 <!-- Nav Item - Pages Collapse Menu -->
 <li class="nav-item">
@@ -40,12 +36,15 @@
         <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="/product">Daftar Product</a>
             <a class="collapse-item" href="/product/create">Tambah Product</a>
+            @can('scan product for add stock', Product::class)
             <a class="collapse-item" href="/product/update/stok">Tambah Stok</a>
+            @endcan
         </div>
     </div>
 </li>
 
 <!-- Nav Item - Utilities Collapse Menu -->
+@can('make transaction', Product::class)
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
         aria-expanded="true" aria-controls="collapseUtilities">
@@ -59,6 +58,7 @@
         </div>
     </div>
 </li>
+@endcan
 
 <!-- Divider -->
 <hr class="sidebar-divider">
