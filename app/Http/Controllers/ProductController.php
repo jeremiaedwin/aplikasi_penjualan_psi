@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Services\PayUService\Exception;
 use RealRashid\SweetAlert\Facades\Alert;
+use Haruncpi\LaravelIdGenerator\IdGenerator;
 
 class ProductController extends Controller
 {
@@ -39,13 +40,16 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $product = new Product;
+        
+        $id = IdGenerator::generate(['table' => 'products', 'length' => 9, 'prefix' => date('y')]);
+
+        $product->id = $id;
         $product->nama_produk = $request->nama_produk;
         $product->harga_produk = $request->harga_produk;
         $product->stok_produk = $request->stok_produk;
         $product->deskripsi_produk = $request->deskripsi_produk;
         $product->barcode = Str::slug($request->nama_produk) . '_barcode';
         $product->save();
-        $product = Product::where('nama_produk', '=', $request->nama_produk)->first();
         
         \Storage::disk('public')->put($product->id.'.png',base64_decode(\DNS2D::getBarcodePNG(strval($product->id), "QRCODE", 300, 300)));
         return back();
@@ -90,9 +94,17 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Product $product)
+    public function destroy($id)
     {
-        //
+        $product = Product::find($id); 
+
+        $product->delete();
+
+        if( \Storage::disk('public')->exists($product->id.'.png')){
+            \Storage::disk('public')->delete($product->id.'.png');
+        }
+
+        return back();
     }
 
     public function updateStok()
