@@ -22,7 +22,8 @@
             <td>{{$product->harga_produk}}</td>
             <td>
                 <a href="/product/{{$product->id}}" class="btn btn-primary">Lihat Barcode</a>
-            </td>
+                <a href="/product/delete/{{$product->id}}" class="btn btn-danger">Hapus</a>
+            </td> 
         </tr>
         @php $no++ @endphp
         @endforeach
