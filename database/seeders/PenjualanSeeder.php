@@ -17,18 +17,18 @@ class PenjualanSeeder extends Seeder
     {
         $faker = Faker::create('id_ID');
         
-    	for($i = 1; $i <= 300; $i++){
+    	for($i = 1; $i <= 700; $i++){
             $product = Product::find($faker->numberBetween(1,3));
             $price = $product->harga_produk;
             $qty = $faker->randomDigitNot(0);
     		DB::table('penjualans')->insert([
     			'product_id' => $product->id,
-    			'user_id' => 1,
-                'store_id' => $faker->numberBetween(1,3),
+    			'kasir_id' => 1,
+                'store_id' => $faker->numberBetween(1,7),
     			'quantity' => $qty,
     			'total' => $qty * $price,
-                'created_at' => $faker->date(),
-                'updated_at' => $faker->date()
+                'created_at' => date("Y-m-d"),
+                'updated_at' => date("Y-m-d")
     		]);
  
     	}
